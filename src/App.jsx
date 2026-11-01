@@ -3,6 +3,7 @@ import './App.css'
 import PageLayout from './components/PageLayout'
 import Home from './page/Home'
 import { useState } from 'react'
+import Courses from './page/Courses'
 
 function App() {
   const[dark, SetDark] = useState(false);
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path='/' element={<PageLayout ToggleBtn={ToggleBtn} dark={dark} />}>
             <Route path='/' element={<Home />} />
+            <Route path='/courses' element={<Courses />} />
           </Route>
         </Routes>
       </BrowserRouter>

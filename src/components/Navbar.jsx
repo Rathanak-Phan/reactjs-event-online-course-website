@@ -11,7 +11,7 @@ function Navbar({ ToggleBtn, dark }) {
         <nav>
             <ul className='flex gap-5'>
                 <Link>Home</Link>
-                <Link>Home</Link>
+                <Link to="/courses">Courses</Link>
             </ul>
         </nav>
 
