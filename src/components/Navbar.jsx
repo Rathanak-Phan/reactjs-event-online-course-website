@@ -1,8 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { MdOutlineDarkMode } from "react-icons/md";
+import { MdOutlineLightMode } from "react-icons/md";
 
-function Navbar() {
+function Navbar({ ToggleBtn, dark }) {
   return (
     <div className='w-7xl flex items-center justify-between'>
         <div>Logo</div>
@@ -18,7 +19,12 @@ function Navbar() {
         <div className='flex gap-5 items-center'>
             {/* Theme mode toggle */}
             <div>
-                <MdOutlineDarkMode className='text-2xl'/>
+                {dark ? <MdOutlineDarkMode 
+                    onClick={ToggleBtn}
+                    className='text-2xl'/> : <MdOutlineLightMode 
+                    onClick={ToggleBtn}
+                    className='text-2xl'/>}
+
             </div>
         
             {/* Account */}
