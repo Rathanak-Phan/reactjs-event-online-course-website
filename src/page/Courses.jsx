@@ -22,10 +22,16 @@ function Courses() {
                 placeholder='Search course here'/>
         </div>
 
-        <div className='grid grid-cols-4 gap-3'>
+        <div className='grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3'>
             {searchFilter.map((course) => (
                 <div key={course.id} className=''>
-                    {course.title}
+                    <div className='h-46'>
+                        <img className='h-full' src={course.image} alt="" />
+                    </div>
+                    <div className='h-20 flex flex-col gap-2 p-3'>
+                        <p>{course.title}</p>
+                        <p>{course.status}</p>
+                    </div>
                 </div>
             ))}
 

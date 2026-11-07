@@ -28,9 +28,9 @@ function Navbar({ ToggleBtn, dark }) {
             </div>
         
             {/* Account */}
-            <div className='w-12 h-12 rounded-full overflow-hidden'>
+            <Link to="/register" className='w-12 h-12 rounded-full overflow-hidden'>
                 <img className='w-full' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUTR1C1DlSW0upx21PhjY_yAnGRJvQQ13utiblL2qb6W_hlGzEERxfjsI&s=10" alt="" />
-            </div>
+            </Link>
         </div>
     </div>
   )
