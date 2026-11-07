@@ -4,14 +4,54 @@ import { Link } from 'react-router-dom';
 
 function Register() {
     const [firstName, setFirstName] = useState("");
+    const [errorFirstName, setErrorFirstName] = useState("");
+
+    const [lastName, setLastName] = useState("");
+    const [errorLastName, setErrorLastName] = useState("");
 
     const [message, setMassage] = useState("");
     const [isRegister, setIsRegister] = useState(false);
 
-    function handleRegister() {
+    function handleRegister(event) {
+        event.preventDefault();
+
+        if (firstName.trim() === ""){
+            setErrorFirstName("First name is require");
+
+            setTimeout(() => {
+                setErrorFirstName("");
+            }, 3000);
+            return;
+        } else if (!(firstName.trim().length >= 2 && firstName.trim().length <= 30)){
+            setErrorFirstName("First name must be more than 2 and less than 30 character");
+
+            setTimeout(() => {
+                setErrorFirstName("");
+            }, 3000);
+            return;
+        }
+
+        if (lastName.trim() === ""){
+            setErrorLastName("Last name is require");
+
+            setTimeout(() => {
+                setErrorLastName("");
+            }, 3000);
+            return;
+        } else if (!(lastName.trim().length >= 2 && lastName.trim().length <= 30)){
+            setErrorLastName("Last name must be more than 2 and less than 30 character");
+
+            setTimeout(() => {
+                setErrorLastName("");
+            }, 3000);
+            return;
+        }
+
+
+
+
         setIsRegister(true);
         setMassage("Register success");
-        console.log(isRegister);
     }    
 
     if (isRegister) {
@@ -45,11 +85,19 @@ function Register() {
                         onChange={(event) => {setFirstName(event.target.value)}}
                         placeholder='e.g: Sokpeng' 
                         className='border-2 border-gray-400 outline-0 p-2 rounded-md'/>
+                    {errorFirstName && <p className='text-red-700'>{errorFirstName}</p>}
                 </div>
 
                 <div className='my-3 flex flex-col gap-3'>
                     <label htmlFor="">Last name</label>
-                    <input type="text" id='last_name' placeholder='e.g: Ly' className='border-2 border-gray-400 outline-0 p-2 rounded-md'/>
+                    <input 
+                        type="text" 
+                        onChange={(event) => {setLastName(event.target.value)}}
+                        placeholder='e.g: Ly' className='border-2 border-gray-400 outline-0 p-2 rounded-md'/>
+
+                        {errorLastName && 
+                            <p className='text-red-500'>{errorLastName}</p>
+                        }
                 </div>
 
                 <div className='my-3 flex flex-col gap-3'>
